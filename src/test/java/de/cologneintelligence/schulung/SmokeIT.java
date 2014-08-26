@@ -11,7 +11,7 @@ public class SmokeIT {
     @Test
     public void smokeTest() throws IOException {
         final WebClient webClient = new WebClient();
-        final HtmlPage page = webClient.getPage("http://localhost:8080/uebung1/index.html");
+        final HtmlPage page = webClient.getPage("http://localhost:8081/uebung1/index.html");
         Assert.assertEquals("Hello, World!", page.getTitleText());
 
         final String pageAsXml = page.asXml();

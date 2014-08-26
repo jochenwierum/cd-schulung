@@ -63,6 +63,7 @@
             <phase>pre-integration-test</phase>
             <configuration>
               <fork>true</fork>
+              <port>8081</port>
             </configuration>
           </execution>
           <execution>
