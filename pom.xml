@@ -52,31 +52,38 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.1</version>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.4.7</version>
         <executions>
           <execution>
-            <id>tomcat-run</id>
-            <goals>
-              <goal>run-war-only</goal>
-            </goals>
+            <id>start-container</id>
             <phase>pre-integration-test</phase>
-            <configuration>
-              <fork>true</fork>
-              <port>8081</port>
-            </configuration>
+            <goals>
+              <goal>start</goal>
+            </goals>
           </execution>
           <execution>
-            <id>tomcat-shutdown</id>
-            <goals>
-              <goal>shutdown</goal>
-            </goals>
+            <id>stop-container</id>
             <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
           </execution>
         </executions>
+        <configuration>
+          <container>
+            <containerId>jetty7x</containerId>
+            <type>embedded</type>
+          </container>
+          <configuration>
+            <properties>
+              <cargo.servlet.port>8081</cargo.servlet.port>
+            </properties>
+          </configuration>
+        </configuration>
       </plugin>
-  </plugins>
+    </plugins>
   </build>
 
   <profiles>
