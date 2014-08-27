@@ -125,11 +125,4 @@
       </build>
     </profile>
   </profiles>
-
-  <distributionManagement>
-    <repository>
-      <id>myId</id>
-      <url>file:///d:/CDSchulung/deploy</url>
-    </repository>
-  </distributionManagement>
 </project>
